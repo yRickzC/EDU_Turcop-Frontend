@@ -6,10 +6,17 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
+      background: url('https://blog.archtrends.com/wp-content/uploads/2024/11/belemdoparaabre.jpeg') no-repeat center center fixed;
+      background-size: cover;
       margin: 0;
+      color: #ffffff;
       text-align: center;
+    }
+
+    .fundo-escuro {
+      background-color: rgba(0, 0, 0, 0.6); /* escurece levemente para dar contraste */
+      min-height: 100vh;
+      padding-bottom: 50px;
     }
 
     .top-bar {
@@ -17,14 +24,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: #d0f0d0;
-      border-bottom: 2px solid #006400;
+      background-color: rgba(0, 100, 0, 0.8);
+      border-bottom: 2px solid #004d00;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
-      color: #006400;
+      color: #ffffff;
     }
 
     .search-container {
@@ -32,7 +39,7 @@
     }
 
     .search-toggle {
-      background-color: #006400;
+      background-color: #004d00;
       color: white;
       padding: 10px 20px;
       font-size: 16px;
@@ -48,18 +55,7 @@
       right: 0;
     }
 
-    .search-box input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border: 2px solid #006400;
-      border-radius: 5px;
-    }
-
-    .search-central {
-      margin: 30px auto;
-    }
-
+    .search-box input,
     .search-central input {
       padding: 12px;
       font-size: 16px;
@@ -68,9 +64,14 @@
       border-radius: 5px;
     }
 
+    .search-central {
+      margin: 30px auto;
+    }
+
     h1 {
-      color: #006400;
+      color: #e0ffe0;
       margin-top: 30px;
+      text-shadow: 1px 1px 3px #003300;
     }
 
     ul {
@@ -80,25 +81,28 @@
     }
 
     li {
-      background-color: #e0ffe0;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #003300;
       margin: 10px auto;
       padding: 15px;
       border-radius: 8px;
       width: 80%;
       max-width: 500px;
       transition: 0.3s;
+      font-weight: bold;
     }
 
     li:hover {
-      background-color: #c4f0c4;
+      background-color: rgba(255, 255, 255, 1);
     }
 
     #resultado {
       margin-top: 40px;
       padding: 20px;
-      color: #006400;
+      color: #ffffff;
       font-weight: bold;
       font-size: 18px;
+      text-shadow: 1px 1px 2px #003300;
     }
 
     @media (max-width: 600px) {
@@ -124,40 +128,41 @@
   </style>
 </head>
 <body>
-
-  <!-- Barra superior -->
-  <div class="top-bar">
-    <div class="logo">TurCOP</div>
-    <div class="search-container">
-      <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
-      <div class="search-box" id="searchBox">
-        <input type="text" id="searchTop" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+  <div class="fundo-escuro">
+    <!-- Barra superior -->
+    <div class="top-bar">
+      <div class="logo">TurCOP</div>
+      <div class="search-container">
+        <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
+        <div class="search-box" id="searchBox">
+          <input type="text" id="searchTop" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+        </div>
       </div>
     </div>
+
+    <h1>Pontos Turísticos de Belém - COP 30</h1>
+
+    <!-- Barra de pesquisa central -->
+    <div class="search-central">
+      <input type="text" id="searchCentral" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+    </div>
+
+    <!-- Lista de pontos turísticos -->
+    <ul id="lista">
+      <li>Estação das Docas</li>
+      <li>Ver-o-Peso</li>
+      <li>Mangal das Garças</li>
+      <li>Basílica de Nazaré</li>
+      <li>Forte do Presépio</li>
+      <li>Ilha do Combu</li>
+      <li>Parque Zoobotânico Mangal</li>
+      <li>Praça da República</li>
+      <li>Mercado de Carne Francisco Bolonha</li>
+    </ul>
+
+    <!-- Resultado da busca -->
+    <div id="resultado"></div>
   </div>
-
-  <h1>Pontos Turísticos de Belém - COP 30</h1>
-
-  <!-- Barra de pesquisa central -->
-  <div class="search-central">
-    <input type="text" id="searchCentral" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
-  </div>
-
-  <!-- Lista de pontos turísticos -->
-  <ul id="lista">
-    <li>Estação das Docas</li>
-    <li>Ver-o-Peso</li>
-    <li>Mangal das Garças</li>
-    <li>Basílica de Nazaré</li>
-    <li>Forte do Presépio</li>
-    <li>Ilha do Combu</li>
-    <li>Parque Zoobotânico Mangal</li>
-    <li>Praça da República</li>
-    <li>Mercado de Carne Francisco Bolonha</li>
-  </ul>
-
-  <!-- Resultado da busca -->
-  <div id="resultado"></div>
 
   <script>
     function toggleSearch() {
@@ -196,6 +201,5 @@
       }
     }
   </script>
-
 </body>
 </html>
