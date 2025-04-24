@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title> TURCOP </title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #006400;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            background-color: #006400;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+            color: #006400;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #006400;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TURCOP</h1>
+        <h1>Os Melhores Pontos Turísticos de Belém do Pará</h1>
+        <p>Visite os lugares mais encantadores da cidade das mangueiras e da COP 30!</p>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Chat IA...">
+        <button>Buscar</button>
+    </div>
+    <header>
+        <h1>DESTAQUES</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Estacao_das_Docas.jpg" alt="Estação das Docas">
+            <div class="card-content">
+                <h3>Estação das Docas</h3>
+                <p>A Estação das Docas é um complexo cultural, turístico e gastronômico localizado à beira da Baía do Guajará 
+                    foi revitalizado no ano 2000 e hoje se transformou em um dos mais belos cartões-postais da cidade.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Mangal_das_Gar%C3%A7as_Bel%C3%A9m.jpg" alt="Mangal das Garças">
+            <div class="card-content">
+                <h3>Mangal das Garças</h3>
+                <p>Um parque ecológico com mirante, borboletário e rica fauna e flora amazônica.
+                    Uma síntese do ambiente amazônico no coração da capital paraense. As matas de várzea,
+                    os animais da região e mais de trezentas espécies de árvores nativas estão presentes no espaço.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Ver-o-Peso">
+            <div class="card-content">
+                <h3>Mercado do Ver-o-Peso</h3>
+                <p>O mercado mais tradicional de Belém, cheio de cores, cheiros e sabores amazônicos. 
+                    Um dos maiores mercados a céu aberto do mundo, com 25 mil m² de área.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Basílica de Nazaré">
+            <div class="card-content">
+                <h3>A Basílica Santuário de Nossa Senhora de Nazaré</h3>
+                <p>A Basílica Santuário Nossa Senhora de Nazaré é uma das igrejas mais belas de Belém,
+                    apresenta o estilo neoclássico e abriga uma grande quantidade de mármore.
+                    A procissão do Círio começa na Catedral de Belém e acaba na Basílica.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Parque Estadual do Utinga">
+            <div class="card-content">
+                <h3>Parque Estadual do Utinga Camillo Vianna </h3>
+                <p>O Parque Estadual do Utinga (PEUt) é uma Unidade de Conservação Estadual criada com o objetivo 
+                    de preservar ecossistemas naturais de grande relevância ecológica e beleza cênica, estimular a 
+                    realização de pesquisas científicas e, além disso, incentivar o desenvolvimento de atividades de 
+                    educação ambiental, incluindo o turismo ecológico</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Complexo Turístico do Ver-o-Rio">
+            <div class="card-content">
+                <h3>Complexo Turístico do Ver-o-Rio</h3>
+                <p>O Complexo Turístico Ver-O-Rio, em Belém do Pará, na beira da Baía do Guajará. Com uma variedade de
+                    barracas de comidas típicas, local de realização de grandes festivais musicais, unindo a gastronomia 
+                    local, a música e a natureza em um só lugar.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Theatro da Paz">
+            <div class="card-content">
+                <h3>Theatro da Paz </h3>
+                <p>É considerado segundo o IPHAN um teatro-monumento e patrimônio histórico,
+                   além de ser o primeiro teatro de ópera da Amazônia e um dos primeiros teatros líricos do Brasil.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Bosque">
+            <div class="card-content">
+                <h3>Bosque Rodrigues Alves - Jardim Zoobotânico da Amazônia</h3>
+                <p>O Bosque Rodrigues Alves abriga mais de 80 mil espécies de flora e fauna, distribuídas na área de
+                    preservação ambiental. Dos 15 hectares, mais de 80% são compostos por áreas verdes, e apenas 20%
+                    em caminhos para circulação de visitantes.O espaço reserva também uma fauna livre, onde os visitantes
+                    podem apreciar de perto os animais.</p>
+            </div>
+        </div>
+        <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Ver-o-Peso_Marketplace_in_Bel%C3%A9m%2C_Brazil.jpg" alt="Forte do Castelo">
+                <div class="card-content">
+                    <h3>Forte do Presépio </h3>
+                    <p>Forte do Castelo é entrar em contato com a história de Belém do Pará e com as tradições artísticas da região. 
+                        O museu é formado por dois circuitos expositivos.Do lado de fora e no pátio interno temos acesso ao
+                        “Sitio Histórico da Fundação de Belém” composto pela estrutura militar com seu arsenal de artilharia que constitui a primeira edificação portuguesa da cidade.</p>
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 TURCOP - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
