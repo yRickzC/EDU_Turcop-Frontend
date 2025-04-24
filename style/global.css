@@ -1,0 +1,19 @@
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --main-0: #10451dff; 
+    --main-10: #155d27ff; 
+    --main-20: #1a7431ff; 
+    --main-30: #208b3aff; 
+    --main-40: #25a244ff; 
+    --main-50: #2dc653ff; 
+    --main-60: #4ad66dff; 
+    --main-70: #6ede8aff; 
+    --main-80: #92e6a7ff; 
+    --main-90: #b7efc5ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

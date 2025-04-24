@@ -3,152 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>TurCOP - Pontos Turísticos de Belém</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
-      margin: 0;
-    }
-
-    /* Barra superior */
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #d0f0d0;
-      border-bottom: 2px solid #006400;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #006400;
-    }
-
-    .search-container {
-      position: relative;
-    }
-
-    .search-toggle {
-      background-color: #006400;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .search-box {
-      margin-top: 10px;
-      display: none;
-      position: absolute;
-      right: 0;
-    }
-
-    .search-box input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border: 2px solid #006400;
-      border-radius: 5px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #006400;
-      margin-top: 30px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    li {
-      background-color: #e0ffe0;
-      margin: 10px auto;
-      padding: 15px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 500px;
-      transition: 0.3s;
-    }
-
-    li:hover {
-      background-color: #c4f0c4;
-    }
-
-    @media (max-width: 600px) {
-      .search-box input {
-        width: 150px;
-      }
-
-      li {
-        width: 90%;
-      }
-
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .search-container {
-        align-self: flex-end;
-        margin-top: 10px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
-
-  <!-- Top bar com logo e botão de pesquisa -->
-  <div class="top-bar">
-    <div class="logo">TurCOP</div>
-    <div class="search-container">
-      <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
-      <div class="search-box" id="searchBox">
-        <input type="text" id="search" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+  <div class="background"></div>
+  <div class="overlay">
+    <div class="top-bar">
+      <div class="logo">TurCOP</div>
+      <div class="search-container">
+        <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
+        <div class="search-box" id="searchBox">
+          <input type="text" id="searchTop" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+        </div>
       </div>
     </div>
+
+    <h1>Pontos Turísticos de Belém - COP 30</h1>
+
+    <div class="search-central">
+      <input type="text" id="searchCentral" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+    </div>
+
+    <ul id="lista">
+      <li>Estação das Docas</li>
+      <li>Ver-o-Peso</li>
+      <li>Mangal das Garças</li>
+      <li>Basílica de Nazaré</li>
+      <li>Forte do Presépio</li>
+      <li>Ilha do Combu</li>
+      <li>Parque Zoobotânico Mangal</li>
+      <li>Praça da República</li>
+      <li>Mercado de Carne Francisco Bolonha</li>
+    </ul>
+
+    <div id="resultado"></div>
   </div>
 
-  <h1>Pontos Turísticos de Belém - COP 30</h1>
+  <div class="footer">
+    <p>TurCOP - Todos os direitos reservados &copy; 2025</p>
+  </div>
 
-  <ul id="lista">
-    <li>Estação das Docas</li>
-    <li>Ver-o-Peso</li>
-    <li>Mangal das Garças</li>
-    <li>Basílica de Nazaré</li>
-    <li>Forte do Presépio</li>
-    <li>Ilha do Combu</li>
-    <li>Parque Zoobotânico Mangal</li>
-    <li>Praça da República</li>
-    <li>Mercado de Carne Francisco Bolonha</li>
-  </ul>
-
-  <script>
-    function toggleSearch() {
-      const searchBox = document.getElementById('searchBox');
-      searchBox.style.display = searchBox.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function filtrar() {
-      const input = document.getElementById('search');
-      const filtro = input.value.toLowerCase();
-      const lista = document.getElementById('lista');
-      const itens = lista.getElementsByTagName('li');
-
-      for (let i = 0; i < itens.length; i++) {
-        const texto = itens[i].textContent || itens[i].innerText;
-        itens[i].style.display = texto.toLowerCase().includes(filtro) ? '' : 'none';
-      }
-    }
-  </script>
-
+  <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
 </body>
 </html>
