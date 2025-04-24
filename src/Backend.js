@@ -1,4 +1,9 @@
 URL = "http://localhost:8000/"
+OFFLINE = true
+
+class FAKEBACKEND {
+    
+}
 
 /**
  * Faz uma pesquisa pelo termo no BackEnd
