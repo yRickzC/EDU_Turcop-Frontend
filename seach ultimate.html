@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>TurCOP - Pontos Turísticos de Belém</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     * {
       box-sizing: border-box;
@@ -12,37 +11,27 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #ffffff;
-      text-align: center;
-      height: 100%;
-      overflow-x: hidden; /* Impede rolagem horizontal */
-    }
-
-    body {
-      position: relative;
-      z-index: 1;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://blog.archtrends.com/wp-content/uploads/2024/11/belemdoparaabre.jpeg') no-repeat center center;
+    body {
+      background: url('https://blog.archtrends.com/wp-content/uploads/2024/11/belemdoparaabre.jpeg') no-repeat center center fixed;
       background-size: cover;
-      filter: blur(15px);
-      z-index: -2;
+      flex: 1;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.6);
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 20px;
     }
 
     .top-bar {
@@ -62,63 +51,51 @@
     }
 
     .search-container {
-      position: relative;
-      margin-top: 10px;
+      margin: auto;
+      text-align: center;
+      padding: 80px 20px 30px;
     }
 
-    .search-toggle {
-      background-color: #004d00;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
+    .search-wrapper {
+      display: inline-flex;
+      width: 90%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
-    .search-toggle:hover {
-      background-color: #006400;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #90ee90;
-    }
-
-    .search-box {
-      margin-top: 10px;
-      display: none;
-      position: absolute;
-      right: 0;
-    }
-
-    .search-box input,
-    .search-central input {
-      padding: 12px;
-      font-size: 16px;
-      width: 300px;
+    .search-wrapper input {
+      flex: 1;
+      padding: 18px 20px;
+      font-size: 20px;
       border: 2px solid #00aa00;
-      border-radius: 5px;
+      border-right: none;
+      outline: none;
     }
 
-    .search-central {
-      margin: 30px auto;
+    .search-wrapper button {
+      padding: 0 25px;
+      background-color: #00aa00;
+      border: 2px solid #00aa00;
+      border-left: none;
+      font-size: 20px;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
     }
 
-    h1 {
-      color: #e0ffe0;
-      margin-top: 30px;
-      text-shadow: 1px 1px 3px #003300;
-      animation: pulse 1.5s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
+    .search-wrapper button:hover {
+      background-color: #009100;
     }
 
     ul {
       list-style-type: none;
       padding: 0;
       margin-top: 30px;
+      display: none;
     }
 
     li {
@@ -127,7 +104,7 @@
       margin: 10px auto;
       padding: 15px;
       border-radius: 8px;
-      width: 80%;
+      width: 90%;
       max-width: 500px;
       transition: all 0.3s ease;
       font-weight: bold;
@@ -141,14 +118,8 @@
       border: 2px solid #00aa00;
     }
 
-    li[style*="display: none"] {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-
     #resultado {
-      margin-top: 40px;
-      padding: 20px;
+      margin-top: 20px;
       color: #ffffff;
       font-weight: bold;
       font-size: 18px;
@@ -162,95 +133,72 @@
       font-size: 14px;
       border-top: 1px solid #007700;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
-      width: 100%;
-      position: relative;
-    }
-
-    .footer p {
-      margin: 0;
-      font-weight: bold;
-      letter-spacing: 1px;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
-      .search-box input,
-      .search-central input {
-        width: 150px;
+      .search-wrapper {
+        width: 95%;
       }
-
       li {
-        width: 90%;
-      }
-
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .search-container {
-        align-self: flex-end;
+        width: 95%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
   <div class="overlay">
     <div class="top-bar">
       <div class="logo">TurCOP</div>
-      <div class="search-container">
-        <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
-        <div class="search-box" id="searchBox">
-          <input type="text" id="searchTop" placeholder="Buscar por nome do ponto turístico..." aria-label="Buscar ponto turístico" onkeyup="filtrar()">
-        </div>
+    </div>
+
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="searchCentral"
+          placeholder="Buscar por nome do ponto turístico..."
+          aria-label="Buscar ponto turístico"
+          onkeyup="filtrar()"
+        >
+        <button type="button" onclick="filtrar()">🔍</button>
       </div>
+
+      <ul id="lista">
+        <li>Estação das Docas</li>
+        <li>Mercado do Ver-o-Peso</li>
+        <li>Mangal das Garças</li>
+        <li>Basílica Santuário de Nossa Senhora de Nazaré</li>
+        <li>Forte do Presépio</li>
+        <li>Parque Estadual do Utinga Camillo Vianna</li>
+        <li>Bosque Rodrigues Alves - Jardim Zoobotânico da Amazônia</li>
+        <li>Theatro da Paz</li>
+        <li>Complexo Turístico do Ver-o-Rio</li>
+      </ul>
+
+      <div id="resultado"></div>
     </div>
 
-    <h1>Pontos Turísticos de Belém - COP 30</h1>
-
-    <div class="search-central">
-      <input type="text" id="searchCentral" placeholder="Buscar por nome do ponto turístico..." aria-label="Buscar ponto turístico" onkeyup="filtrar()">
+    <div class="footer">
+      <p>TurCOP - Todos os direitos reservados &copy; 2025</p>
     </div>
-
-    <ul id="lista">
-      <li>Estação das Docas</li>
-      <li>Mercado do Ver-o-Peso</li>
-      <li>Mangal das Garças</li>
-      <li>Basílica Santuário de Nossa Senhora de Nazaré</li>
-      <li>Forte do Presépio</li>
-      <li>Parque Estadual do Utinga Camillo Vianna</li>
-      <li>Bosque Rodrigues Alves - Jardim Zoobotânico da Amazônia</li>
-      <li>Theatro da Paz</li>
-      <li>Complexo Turístico do Ver-o-Rio</li>
-    </ul>
-
-    <div id="resultado"></div>
-  </div>
-
-  <div class="footer">
-    <p>TurCOP - Todos os direitos reservados &copy; 2025</p>
   </div>
 
   <script>
-    function toggleSearch() {
-      const searchBox = document.getElementById('searchBox');
-      searchBox.style.display = searchBox.style.display === 'block' ? 'none' : 'block';
-    }
-
     function filtrar() {
-      const inputTop = document.getElementById('searchTop');
-      const inputCentral = document.getElementById('searchCentral');
-      const filtroTop = inputTop?.value.toLowerCase() || "";
-      const filtroCentral = inputCentral?.value.toLowerCase() || "";
-      const filtro = filtroTop || filtroCentral;
-
+      const input = document.getElementById('searchCentral');
+      const filtro = input.value.toLowerCase();
       const lista = document.getElementById('lista');
       const itens = lista.getElementsByTagName('li');
       let encontrados = 0;
 
+      // mostra/oculta lista
+      lista.style.display = filtro.trim() !== "" ? 'block' : 'none';
+
+      // filtra itens
       for (let i = 0; i < itens.length; i++) {
-        const texto = itens[i].textContent || itens[i].innerText;
-        if (texto.toLowerCase().includes(filtro)) {
+        const texto = itens[i].textContent.toLowerCase();
+        if (texto.includes(filtro)) {
           itens[i].style.display = '';
           encontrados++;
         } else {
@@ -258,6 +206,7 @@
         }
       }
 
+      // exibe mensagem de resultado
       const resultado = document.getElementById('resultado');
       resultado.innerText = filtro
         ? (encontrados > 0
