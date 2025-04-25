@@ -1,9 +1,6 @@
 URL = "http://localhost:8000/"
 OFFLINE = true
 
-let botao = document.getElementById('botao')
-
-
 class FAKEBACKEND {
     
 }
@@ -47,7 +44,3 @@ async function request(func, content) {
         return {"error": []};
     }
 }
-
-botao.addEventListener('click' , () =>{
-  console.log(request_find(), request_ai(), request())  
-})

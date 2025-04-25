@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./home.css">
     <title> TURCOP </title> 
+    <link rel="stylesheet" href="style/global.css">
+    <script src="src/Backend.js"></script>
+    <!-- CSS do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- JS do Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -14,10 +20,18 @@
         <p>Visite os lugares mais encantadores da cidade das mangueiras e da COP 30!</p>
     </header>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Chat IA..." id="botao">
-        <button>Buscar</button>
+    <div>
+        <div class="search-bar">
+            <input type="text" placeholder="Fale com AI o que procura" id="home-search">
+            <button class="search-bar-button" onclick="requestAI()">IA</button>
+            <a class="search-bar-button" href="search.html">Avançada</a>
+        </div>
+        <p id="home-load"></p>
+        <div id="home-response">
+
+        </div>
     </div>
+
     <header>
         <h2>DESTAQUES</h2>
     </header>
@@ -114,6 +128,6 @@
     <footer>
         <p>© 2025 TURCOP - Todos os direitos reservados.</p>
     </footer>
-<script src="./src/Backend.js"></script>
+    <script src="src/home.js"></script>
 </body>
 </html> 

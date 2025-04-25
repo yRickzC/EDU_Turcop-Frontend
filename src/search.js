@@ -1,6 +1,7 @@
 const bar = document.getElementById("lista");
 const input = document.getElementById("searchCentral");
 
+
 function createItem(item) {
   // 1) Container do item
   const container = document.createElement("div");
@@ -38,13 +39,14 @@ function createMap(id, name, lat, lng) {
 
 async function searchList() {
   const list = await request_find(input.value.toLowerCase());
-  
-  bar.innerHTML = "";
+
+  bar.innerHTML = ""
 
   const data = list.data;
 
   data.forEach(element => {
     createItem(element);
   });
+
 }
 

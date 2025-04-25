@@ -27,7 +27,7 @@ header {
     border-radius: 10px;
 }
 
-.search-bar button {
+.search-bar-button {
     padding: 10px 10px;
     font-size: 16px;
     border: none;
@@ -35,6 +35,12 @@ header {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.search-bar-button:hover {
+    background-color: var(--main-30);
 }
 
 .container {
@@ -71,6 +77,28 @@ header {
 .card-content h3 {
     margin-top: 0;
     color: #006400;
+}
+
+.mini-map {
+    height: 200px; /* Ou o tamanho que quiser */
+    width: 256px;
+    border: 1px solid #ccc;
+}
+
+.home-response {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.item-response {
+    display: flex;
+}
+
+#home-load {
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 footer {
