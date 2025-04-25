@@ -3,30 +3,18 @@
 <!-- JS do Leaflet -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <style>
-    #map {
+    .map {
       height: 400px; /* Ou o tamanho que quiser */
       width: 100%;
       border: 1px solid #ccc;
     }
-  </style>
+</style>
 
 <body>
-    <div id="map"></div>
+    <div class="map" id="map"></div>
   
     <script>
-      // Cria o mapa e centraliza em [latitude, longitude], com zoom 13
-      var map = L.map('map').setView([-23.5505, -46.6333], 13); // São Paulo como exemplo
-  
-      // Adiciona o tile do OpenStreetMap
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-      }).addTo(map);
-  
-      // Adiciona um marcador
-      L.marker([-23.5505, -46.6333])
-        .addTo(map)
-        .bindPopup('Você está aqui!')
-        .openPopup();
+      
     </script>
   </body>
   
