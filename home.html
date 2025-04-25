@@ -2,88 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title> TURCOP </title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            background-color: #006400;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .search-bar {
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .search-bar input {
-            padding: 10px;
-            width: 250px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .search-bar button {
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            background-color: #006400;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 30px;
-        }
-
-        .card {
-            background-color: white;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin-top: 0;
-            color: #006400;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #006400;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="./home.css">
+    <title> TURCOP </title> 
 </head>
+
 <body>
 
     <header>
@@ -93,11 +15,11 @@
     </header>
 
     <div class="search-bar">
-        <input type="text" placeholder="Chat IA...">
+        <input type="text" placeholder="Chat IA..." id="botao">
         <button>Buscar</button>
     </div>
     <header>
-        <h1>DESTAQUES</h1>
+        <h2>DESTAQUES</h2>
     </header>
 
     <div class="container">
@@ -192,6 +114,6 @@
     <footer>
         <p>© 2025 TURCOP - Todos os direitos reservados.</p>
     </footer>
-
+<script src="./src/Backend.js"></script>
 </body>
 </html> 

@@ -1,10 +1,12 @@
 URL = "http://localhost:8000/"
 OFFLINE = true
 
+let botao = document.getElementById('botao')
+
+
 class FAKEBACKEND {
     
 }
-
 /**
  * Faz uma pesquisa pelo termo no BackEnd
  * @param {String} text 
@@ -45,3 +47,7 @@ async function request(func, content) {
         return {"error": []};
     }
 }
+
+botao.addEventListener('click' , () =>{
+  console.log(request_find(), request_ai(), request())  
+})
