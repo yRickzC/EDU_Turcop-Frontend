@@ -3,46 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <title>TurCOP - Pontos Turísticos de Belém</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      background: url('https://blog.archtrends.com/wp-content/uploads/2024/11/belemdoparaabre.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      flex: 1;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 100, 0, 0.8);
+      border-bottom: 2px solid #004d00;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .search-container {
+      margin: auto;
+      text-align: center;
+      padding: 80px 20px 30px;
+    }
+
+    .search-wrapper {
+      display: inline-flex;
+      width: 90%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .search-wrapper input {
+      flex: 1;
+      padding: 18px 20px;
+      font-size: 20px;
+      border: 2px solid #00aa00;
+      border-right: none;
+      outline: none;
+    }
+
+    .search-wrapper button {
+      padding: 0 25px;
+      background-color: #00aa00;
+      border: 2px solid #00aa00;
+      border-left: none;
+      font-size: 20px;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+
+    .search-wrapper button:hover {
+      background-color: #009100;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 30px;
+      display: none;
+    }
+
+    li {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #003300;
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: rgba(255, 255, 255, 1);
+      transform: scale(1.02);
+      border: 2px solid #00aa00;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 18px;
+      text-shadow: 1px 1px 2px #003300;
+    }
+
+    .footer {
+      background-color: rgba(0, 100, 0, 0.8);
+      color: white;
+      padding: 25px 0;
+      font-size: 14px;
+      border-top: 1px solid #007700;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .search-wrapper {
+        width: 95%;
+      }
+      li {
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="background"></div>
   <div class="overlay">
     <div class="top-bar">
       <div class="logo">TurCOP</div>
-      <div class="search-container">
-        <button class="search-toggle" onclick="toggleSearch()">Pesquisar</button>
-        <div class="search-box" id="searchBox">
-          <input type="text" id="searchTop" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
-        </div>
+    </div>
+
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="searchCentral"
+          placeholder="Buscar por nome do ponto turístico..."
+          aria-label="Buscar ponto turístico"
+          onkeyup="filtrar()"
+        >
+        <button type="button" onclick="filtrar()">🔍</button>
       </div>
+
+      <ul id="lista">
+        <li>Estação das Docas</li>
+        <li>Mercado do Ver-o-Peso</li>
+        <li>Mangal das Garças</li>
+        <li>Basílica Santuário de Nossa Senhora de Nazaré</li>
+        <li>Forte do Presépio</li>
+        <li>Parque Estadual do Utinga Camillo Vianna</li>
+        <li>Bosque Rodrigues Alves - Jardim Zoobotânico da Amazônia</li>
+        <li>Theatro da Paz</li>
+        <li>Complexo Turístico do Ver-o-Rio</li>
+      </ul>
+
+      <div id="resultado"></div>
     </div>
 
-    <h1>Pontos Turísticos de Belém - COP 30</h1>
-
-    <div class="search-central">
-      <input type="text" id="searchCentral" placeholder="Buscar ponto turístico..." onkeyup="filtrar()">
+    <div class="footer">
+      <p>TurCOP - Todos os direitos reservados &copy; 2025</p>
     </div>
-
-    <ul id="lista">
-      <li>Estação das Docas</li>
-      <li>Mercado do Ver-o-Peso</li>
-      <li>Mangal das Garças</li>
-      <li>Basílica Santuário de Nossa Senhora de Nazaré</li>
-      <li>Forte do Presépio</li>
-      <li>Parque Estadual do Utinga Camillo Vianna</li>
-      <li>Bosque Rodrigues Alves - Jardim Zoobotânico da Amazônia</li>
-      <li>Theatro da Paz</li>
-      <li>Complexo Turístico do Ver-o-Rio</li>
-    </ul>
-    
-    <div id="resultado"></div>
   </div>
 
-  <div class="footer">
-    <p>TurCOP - Todos os direitos reservados &copy; 2025</p>
-  </div>
+  <script>
+    function filtrar() {
+      const input = document.getElementById('searchCentral');
+      const filtro = input.value.toLowerCase();
+      const lista = document.getElementById('lista');
+      const itens = lista.getElementsByTagName('li');
+      let encontrados = 0;
 
-  <script src="script.js"></script> <!-- Link para o arquivo JavaScript -->
+      // mostra/oculta lista
+      lista.style.display = filtro.trim() !== "" ? 'block' : 'none';
+
+      // filtra itens
+      for (let i = 0; i < itens.length; i++) {
+        const texto = itens[i].textContent.toLowerCase();
+        if (texto.includes(filtro)) {
+          itens[i].style.display = '';
+          encontrados++;
+        } else {
+          itens[i].style.display = 'none';
+        }
+      }
+
+      // exibe mensagem de resultado
+      const resultado = document.getElementById('resultado');
+      resultado.innerText = filtro
+        ? (encontrados > 0
+            ? `Encontramos ${encontrados} resultado(s) para "${filtro}"`
+            : `Nenhum resultado encontrado para "${filtro}"`)
+        : '';
+    }
+  </script>
 </body>
 </html>
