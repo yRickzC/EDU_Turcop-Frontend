@@ -12,7 +12,7 @@ class FAKEBACKEND {
  * @param {String} text 
  */
 async function request_find(text) {
-    return await request("find", text)
+    return await request("find", text);
 }
 
 /**
@@ -20,7 +20,7 @@ async function request_find(text) {
  * @param {String} text 
  */
 async function request_ai(text) {
-    return await request("ai", text)
+    return await request("ai", text);
 }
 
 /**
@@ -31,19 +31,19 @@ async function request_ai(text) {
  */
 async function request(func, content) {
     try {
-        const response = await fetch(`${URL}${func}?input=${encodeURIComponent(content)}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+        const link = `${URL}${func}?input=${encodeURIComponent(content)}`;
+        const res = await fetch(link);
+        const txt = await res.text();
 
-        if (response.ok) {
-            return await response.json();
+      
+        if (!res.ok) {
+          throw new Error(`Erro ${res.status}: ${txt}`);
         }
-
-        return {"error": []};
+      
+        const data = JSON.parse(txt);
+        return data;
     } catch (error) {
+        console.log(error)
         return {"error": []};
     }
 }
